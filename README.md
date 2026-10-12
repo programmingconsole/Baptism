@@ -1,6 +1,6 @@
 # Shalet Maria Sanju — Holy Baptism Invitation
 
-A beautiful, premium, and fully responsive digital Holy Baptism invitation web application celebrating **Shalet Maria Sanju**, beloved son of **Sanju Saju** and **Angela Alappat**, built with **React 19**, **TypeScript**, **Tailwind CSS**, and **TanStack Start**.
+A beautiful, premium, and fully responsive digital Holy Baptism invitation web application celebrating **Shalet Maria Sanju**, beloved daughter of **Sanju Saju** and **Angela Alappat**, built with **React 19**, **TypeScript**, **Tailwind CSS**, and **TanStack Start**.
 
 ## Features
 

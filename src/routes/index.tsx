@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "With joyous hearts, Sanju Saju & Angela Alappat invite you to celebrate the Holy Baptism of their beloved son Shalet Maria Sanju on Friday, 6th November 2026 in Sharjah.",
+          "With joyous hearts, Sanju Saju & Angela Alappat invite you to celebrate the Holy Baptism of their beloved daughter Shalet Maria Sanju on Friday, 6th November 2026 in Sharjah.",
       },
       { property: "og:title", content: "Shalet Maria Sanju — Holy Baptism Invitation" },
       {
@@ -439,7 +439,7 @@ function Cover({ onOpen, showButton = true }: { onOpen: () => void; showButton?:
 
         <div className="flex flex-col items-center">
           <p className="tracking-[0.24em] text-[10px] uppercase text-gold-dark font-semibold sm:text-xs sm:tracking-[0.32em]">
-            Beloved Son of
+            Beloved Daughter of
           </p>
           <p
             className="mt-1 text-xl sm:text-2xl text-navy-deep italic tracking-wide"
@@ -488,7 +488,7 @@ function CardContent({
   const [copied, setCopied] = useState(false);
 
   const handleShare = () => {
-    const text = `You're cordially invited to the Holy Baptism of Shalet Maria Sanju (son of Sanju Saju & Angela Alappat) on Friday, 6th November 2026 in Sharjah.\n\nView Invitation:\n${window.location.href}`;
+    const text = `You're cordially invited to the Holy Baptism of Shalet Maria Sanju (daughter of Sanju Saju & Angela Alappat) on Friday, 6th November 2026 in Sharjah.\n\nView Invitation:\n${window.location.href}`;
     if (navigator.share) {
       navigator.share({
         title: "Holy Baptism of Shalet Maria Sanju",
@@ -652,7 +652,7 @@ function CardContent({
               className="text-lg italic text-navy-deep sm:text-xl"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              &ldquo;May the Lord bless him and keep him, and make His face shine upon him.&rdquo;
+              &ldquo;May the Lord bless her and keep her, and make His face shine upon her.&rdquo;
             </p>
             <p className="mt-1 text-[10px] tracking-[0.24em] uppercase text-gold-dark font-semibold">
               With Love &amp; Blessings &middot; Sanju &amp; Angela
@@ -739,7 +739,7 @@ function DetailedInvitationCard() {
 
       {/* Formal wording */}
       <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-navy-deep/90 max-w-sm text-center">
-        With hearts full of praise and gratitude to Almighty God, we warmly invite you to celebrate the Sacrament of Holy Baptism of our beloved son
+        With hearts full of praise and gratitude to Almighty God, we warmly invite you to celebrate the Sacrament of Holy Baptism of our beloved daughter
       </p>
 
       {/* Child's Name */}
@@ -760,7 +760,7 @@ function DetailedInvitationCard() {
           <span className="h-[1px] flex-1 bg-gold-dark/40" />
         </div>
         <p className="mt-2 text-[11px] tracking-[0.2em] uppercase text-gold-dark font-semibold sm:text-xs">
-          Son of
+          Daughter of
         </p>
         <p className="text-base sm:text-lg italic font-medium text-navy-deep">
           Sanju Saju &amp; Angela Alappat
