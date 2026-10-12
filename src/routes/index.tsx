@@ -15,6 +15,14 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    open:
+      search.open === "true" ||
+      search.open === true ||
+      search.thumb === "true" ||
+      search.thumb === true,
+    thumb: search.thumb === "true" || search.thumb === true,
+  }),
   head: () => ({
     meta: [
       { title: "Shalet Maria Sanju — Holy Baptism Invitation" },
@@ -53,12 +61,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Invitation() {
-  const [opened, setOpened] = useState(false);
+  const search = Route.useSearch();
+  const isThumb = Boolean(search.thumb);
+  const [opened, setOpened] = useState(Boolean(search.open));
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (!opened) return;
+    if (!opened || isThumb) return;
     const a = audioRef.current;
     if (!a) return;
     a.loop = true;
@@ -66,7 +76,7 @@ function Invitation() {
     a.play()
       .then(() => setPlaying(true))
       .catch(() => setPlaying(false));
-  }, [opened]);
+  }, [opened, isThumb]);
 
   const toggleMusic = () => {
     const a = audioRef.current;
@@ -82,6 +92,20 @@ function Invitation() {
 
   // Use the newly added song from public/baptism-song.mp3
   const audioSrc = "/baptism-song.mp3";
+
+  if (isThumb) {
+    return (
+      <div className="w-full min-h-screen bg-[#f8f5ee] flex items-center justify-center p-4 font-serif-body">
+        <div
+          className="fixed inset-0 bg-cover bg-center pointer-events-none"
+          style={{ backgroundImage: `url(${bgImage})` }}
+        />
+        <div className="relative w-full max-w-[420px] z-10 my-auto">
+          <DetailedInvitationCard />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen w-full bg-[#f8f5ee] flex justify-center items-stretch overflow-x-hidden font-serif-body selection:bg-gold/30 selection:text-navy-deep">
@@ -488,106 +512,7 @@ function CardContent({
     <div className="relative z-10 mx-auto w-full max-w-md sm:max-w-lg animate-card-rise px-3.5 py-6 sm:px-5 sm:py-8 space-y-8">
       {/* SECTION 1: SACRED INVITATION & BABY CELEBRATION */}
       <section className="relative flex flex-col items-center justify-center text-center w-full min-h-[85vh] py-2">
-        <div className="relative w-full rounded-2xl border-2 border-gold-dark/60 bg-cream/80 px-4 py-8 shadow-lg backdrop-blur-md sm:px-8 sm:py-10 flex flex-col items-center justify-center gap-2 ring-1 ring-gold/40 ring-offset-2 ring-offset-cream">
-          {/* Floral Border Corners */}
-          <FloralCorner className="pointer-events-none absolute -left-1.5 -top-1.5 h-16 w-16 text-gold-dark sm:-left-2 sm:-top-2 sm:h-22 sm:w-22" />
-          <FloralCorner className="pointer-events-none absolute -right-1.5 -top-1.5 h-16 w-16 scale-x-[-1] text-gold-dark sm:-right-2 sm:-top-2 sm:h-22 sm:w-22" />
-          <FloralCorner className="pointer-events-none absolute -bottom-1.5 -left-1.5 h-16 w-16 scale-y-[-1] text-gold-dark sm:-bottom-2 sm:-left-2 sm:h-22 sm:w-22" />
-          <FloralCorner className="pointer-events-none absolute -bottom-1.5 -right-1.5 h-16 w-16 scale-x-[-1] scale-y-[-1] text-gold-dark sm:-bottom-2 sm:-right-2 sm:h-22 sm:w-22" />
-
-          {/* Cross & Scripture */}
-          <HolyCross className="mb-1 animate-float-up" />
-
-          <p className="mt-1 font-serif-body italic text-[14px] text-navy-deep/80 sm:text-[16px] max-w-xs animate-float-up delay-100">
-            &ldquo;Every good and perfect gift is from above.&rdquo;
-          </p>
-          <p className="text-[10px] tracking-[0.25em] uppercase text-gold-dark font-semibold animate-float-up delay-200">
-            — James 1:17 —
-          </p>
-
-          <FloralBorderGarland className="my-2" />
-
-          {/* Formal wording */}
-          <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-navy-deep/90 max-w-sm animate-float-up delay-300">
-            With hearts full of praise and gratitude to Almighty God, we warmly invite you to celebrate the Sacrament of Holy Baptism of our beloved son
-          </p>
-
-          {/* Child's Name */}
-          <div className="my-3 flex flex-col items-center animate-float-up delay-400">
-            <h2
-              className="tracking-[0.06em] font-bold text-navy-deep drop-shadow-sm px-2"
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: "clamp(1.5rem, 6.2vw, 2.2rem)",
-                lineHeight: 1.2,
-              }}
-            >
-              SHALET MARIA SANJU
-            </h2>
-            <div className="mt-2.5 mx-auto flex w-full max-w-[180px] items-center justify-center gap-2">
-              <span className="h-[1px] flex-1 bg-gold-dark/40" />
-              <span className="h-2 w-2 rotate-45 border border-gold-dark/60 bg-gold/20" />
-              <span className="h-[1px] flex-1 bg-gold-dark/40" />
-            </div>
-            <p className="mt-2 text-[11px] tracking-[0.2em] uppercase text-gold-dark font-semibold sm:text-xs">
-              Son of
-            </p>
-            <p className="text-base sm:text-lg italic font-medium text-navy-deep">
-              Sanju Saju &amp; Angela Alappat
-            </p>
-          </div>
-
-          {/* Quick-glance two arches */}
-          <div className="relative mx-auto mt-2 grid w-full max-w-[340px] grid-cols-2 items-stretch gap-2.5 animate-float-up delay-600 sm:max-w-[380px] sm:gap-3.5">
-            {/* Baptism Ceremony */}
-            <div className="flex min-w-0 flex-col items-center justify-between rounded-2xl border border-gold-dark/50 bg-[#faf6ee] px-2.5 py-4 shadow-sm sm:px-4 sm:py-5">
-              <div className="flex flex-col items-center">
-                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-navy-deep/10 text-navy-deep">
-                  <Clock className="h-4 w-4 text-navy-deep" />
-                </div>
-                <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-gold-dark sm:text-[10px]">
-                  BAPTISM
-                </p>
-                <span
-                  className="text-navy-deep font-bold leading-tight my-1 text-center"
-                  style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.15rem, 5vw, 1.45rem)" }}
-                >
-                  3:00 PM
-                </span>
-                <p className="text-[10px] font-semibold text-navy-deep/90 sm:text-xs">
-                  Friday, Nov 6
-                </p>
-              </div>
-              <p className="mt-2 text-[9px] text-center font-medium tracking-wide text-navy-deep/75 border-t border-gold-dark/20 pt-1.5 w-full">
-                St. Michael&apos;s Church
-              </p>
-            </div>
-
-            {/* Reception */}
-            <div className="flex min-w-0 flex-col items-center justify-between rounded-2xl border border-gold-dark/50 bg-[#faf6ee] px-2.5 py-4 shadow-sm sm:px-4 sm:py-5">
-              <div className="flex flex-col items-center">
-                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-navy-deep/10 text-navy-deep">
-                  <Sparkles className="h-4 w-4 text-navy-deep" />
-                </div>
-                <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-gold-dark sm:text-[10px]">
-                  RECEPTION
-                </p>
-                <span
-                  className="text-navy-deep font-bold leading-tight my-1 text-center"
-                  style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.15rem, 5vw, 1.45rem)" }}
-                >
-                  7:00 PM
-                </span>
-                <p className="text-[10px] font-semibold text-navy-deep/90 sm:text-xs">
-                  Onwards
-                </p>
-              </div>
-              <p className="mt-2 text-[9px] text-center font-medium tracking-wide text-navy-deep/75 border-t border-gold-dark/20 pt-1.5 w-full">
-                Asian Empire Venue
-              </p>
-            </div>
-          </div>
-        </div>
+        <DetailedInvitationCard />
       </section>
 
       {/* SECTION 2: CEREMONY & RECEPTION VENUE DETAILS */}
@@ -783,6 +708,111 @@ function Countdown({ target }: { target: string }) {
             </span>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function DetailedInvitationCard() {
+  return (
+    <div className="relative w-full rounded-2xl border-2 border-gold-dark/60 bg-cream/90 px-4 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 flex flex-col items-center justify-center gap-2 ring-1 ring-gold/40 ring-offset-2 ring-offset-cream">
+      {/* Floral Border Corners */}
+      <FloralCorner className="pointer-events-none absolute -left-1.5 -top-1.5 h-16 w-16 text-gold-dark sm:-left-2 sm:-top-2 sm:h-22 sm:w-22" />
+      <FloralCorner className="pointer-events-none absolute -right-1.5 -top-1.5 h-16 w-16 scale-x-[-1] text-gold-dark sm:-right-2 sm:-top-2 sm:h-22 sm:w-22" />
+      <FloralCorner className="pointer-events-none absolute -bottom-1.5 -left-1.5 h-16 w-16 scale-y-[-1] text-gold-dark sm:-bottom-2 sm:-left-2 sm:h-22 sm:w-22" />
+      <FloralCorner className="pointer-events-none absolute -bottom-1.5 -right-1.5 h-16 w-16 scale-x-[-1] scale-y-[-1] text-gold-dark sm:-bottom-2 sm:-right-2 sm:h-22 sm:w-22" />
+
+      {/* Cross & Scripture */}
+      <HolyCross className="mb-1" />
+
+      <p className="mt-1 font-serif-body italic text-[14px] text-navy-deep/80 sm:text-[16px] max-w-xs text-center">
+        &ldquo;Every good and perfect gift is from above.&rdquo;
+      </p>
+      <p className="text-[10px] tracking-[0.25em] uppercase text-gold-dark font-semibold">
+        — James 1:17 —
+      </p>
+
+      <FloralBorderGarland className="my-2" />
+
+      {/* Formal wording */}
+      <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-navy-deep/90 max-w-sm text-center">
+        With hearts full of praise and gratitude to Almighty God, we warmly invite you to celebrate the Sacrament of Holy Baptism of our beloved son
+      </p>
+
+      {/* Child's Name */}
+      <div className="my-3 flex flex-col items-center text-center">
+        <h2
+          className="tracking-[0.06em] font-bold text-navy-deep drop-shadow-sm px-2"
+          style={{
+            fontFamily: "'Cinzel', serif",
+            fontSize: "clamp(1.5rem, 6.2vw, 2.2rem)",
+            lineHeight: 1.2,
+          }}
+        >
+          SHALET MARIA SANJU
+        </h2>
+        <div className="mt-2.5 mx-auto flex w-full max-w-[180px] items-center justify-center gap-2">
+          <span className="h-[1px] flex-1 bg-gold-dark/40" />
+          <span className="h-2 w-2 rotate-45 border border-gold-dark/60 bg-gold/20" />
+          <span className="h-[1px] flex-1 bg-gold-dark/40" />
+        </div>
+        <p className="mt-2 text-[11px] tracking-[0.2em] uppercase text-gold-dark font-semibold sm:text-xs">
+          Son of
+        </p>
+        <p className="text-base sm:text-lg italic font-medium text-navy-deep">
+          Sanju Saju &amp; Angela Alappat
+        </p>
+      </div>
+
+      {/* Quick-glance two arches */}
+      <div className="relative mx-auto mt-2 grid w-full max-w-[340px] grid-cols-2 items-stretch gap-2.5 sm:max-w-[380px] sm:gap-3.5">
+        {/* Baptism Ceremony */}
+        <div className="flex min-w-0 flex-col items-center justify-between rounded-2xl border border-gold-dark/50 bg-[#faf6ee] px-2.5 py-4 shadow-sm sm:px-4 sm:py-5">
+          <div className="flex flex-col items-center">
+            <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-navy-deep/10 text-navy-deep">
+              <Clock className="h-4 w-4 text-navy-deep" />
+            </div>
+            <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-gold-dark sm:text-[10px]">
+              BAPTISM
+            </p>
+            <span
+              className="text-navy-deep font-bold leading-tight my-1 text-center"
+              style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.15rem, 5vw, 1.45rem)" }}
+            >
+              3:00 PM
+            </span>
+            <p className="text-[10px] font-semibold text-navy-deep/90 sm:text-xs">
+              Friday, Nov 6
+            </p>
+          </div>
+          <p className="mt-2 text-[9px] text-center font-medium tracking-wide text-navy-deep/75 border-t border-gold-dark/20 pt-1.5 w-full">
+            St. Michael&apos;s Church
+          </p>
+        </div>
+
+        {/* Reception */}
+        <div className="flex min-w-0 flex-col items-center justify-between rounded-2xl border border-gold-dark/50 bg-[#faf6ee] px-2.5 py-4 shadow-sm sm:px-4 sm:py-5">
+          <div className="flex flex-col items-center">
+            <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-navy-deep/10 text-navy-deep">
+              <Sparkles className="h-4 w-4 text-navy-deep" />
+            </div>
+            <p className="text-[9px] font-bold tracking-[0.16em] uppercase text-gold-dark sm:text-[10px]">
+              RECEPTION
+            </p>
+            <span
+              className="text-navy-deep font-bold leading-tight my-1 text-center"
+              style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.15rem, 5vw, 1.45rem)" }}
+            >
+              7:00 PM
+            </span>
+            <p className="text-[10px] font-semibold text-navy-deep/90 sm:text-xs">
+              Onwards
+            </p>
+          </div>
+          <p className="mt-2 text-[9px] text-center font-medium tracking-wide text-navy-deep/75 border-t border-gold-dark/20 pt-1.5 w-full">
+            Asian Empire Venue
+          </p>
+        </div>
       </div>
     </div>
   );
