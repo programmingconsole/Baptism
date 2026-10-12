@@ -449,11 +449,14 @@ function Cover({ onOpen, showButton = true }: { onOpen: () => void; showButton?:
           </p>
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-1 rounded-full border border-gold-dark/40 bg-cream/70 px-6 py-2.5 shadow-sm backdrop-blur-sm animate-float-up delay-700">
-          <p className="tracking-[0.28em] text-xs font-semibold text-navy-deep sm:tracking-[0.38em] sm:text-sm">
+        <div className="mt-6 sm:mt-8 flex flex-col items-center gap-2 sm:gap-2.5 rounded-full border-2 border-gold-dark/50 bg-cream/80 px-8 py-4 sm:px-12 sm:py-5 shadow-md backdrop-blur-sm animate-float-up delay-700 ring-1 ring-gold/30">
+          <p
+            className="tracking-[0.26em] sm:tracking-[0.35em] text-2xl sm:text-3xl font-bold text-navy-deep leading-none"
+            style={{ fontFamily: "'Cinzel', serif" }}
+          >
             06 &middot; 11 &middot; 2026
           </p>
-          <p className="text-[9px] tracking-[0.2em] uppercase text-gold-dark font-medium sm:text-[10px]">
+          <p className="text-sm sm:text-base tracking-[0.22em] uppercase text-gold-dark font-semibold">
             Friday &middot; Sharjah, UAE
           </p>
         </div>
