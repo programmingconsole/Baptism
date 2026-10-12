@@ -23,6 +23,8 @@
   --color-maroon-deep: var(--navy-deep);
   --color-cream: var(--cream);
   --color-sky-soft: var(--sky-soft);
+  --color-blush: var(--blush);
+  --color-blush-soft: var(--blush-soft);
   --font-display: var(--font-display);
   --font-serif-body: var(--font-serif-body);
 }
@@ -44,6 +46,8 @@
   --gold-dark: oklch(0.66 0.11 75);
   --navy-deep: oklch(0.22 0.07 245);
   --sky-soft: oklch(0.92 0.03 230);
+  --blush: #fad4d8;
+  --blush-soft: #fdf0f2;
   --cream: oklch(0.97 0.012 85);
   --card: oklch(0.97 0.012 85);
   --card-foreground: oklch(0.22 0.07 245);

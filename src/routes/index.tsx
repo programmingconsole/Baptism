@@ -154,14 +154,14 @@ function Invitation() {
 }
 
 function FloatingSparklesAndPetals() {
-  const particles = Array.from({ length: 18 });
+  const particles = Array.from({ length: 20 });
   return (
     <div className="pointer-events-none fixed inset-0 z-40 overflow-hidden">
       {particles.map((_, i) => {
-        const left = (i * 5.9) % 100;
-        const duration = 9 + ((i * 1.6) % 8);
+        const left = (i * 4.9) % 100;
+        const duration = 8 + ((i * 1.5) % 8);
         const delay = (i * 0.7) % 10;
-        const size = 10 + ((i * 2.3) % 11);
+        const size = 12 + ((i * 2.2) % 12);
         const drift = i % 2 === 0 ? "petal-drift-a" : "petal-drift-b";
         return (
           <span
@@ -176,34 +176,51 @@ function FloatingSparklesAndPetals() {
             }}
           >
             {i % 4 === 0 ? (
-              /* Delicate floating flower blossom */
-              <svg viewBox="0 0 24 24" className="h-full w-full text-gold-dark/65 drop-shadow-sm">
-                <path
-                  d="M12 3 C10 7, 14 7, 12 3 Z M19 12 C15 10, 15 14, 19 12 Z M12 21 C14 17, 10 17, 12 21 Z M5 12 C9 14, 9 10, 5 12 Z"
-                  fill="currentColor"
-                />
-                <circle cx="12" cy="12" r="2.8" fill="#FAF7F2" stroke="currentColor" strokeWidth="0.8" />
+              /* Cute 5-petal blush cherry blossom */
+              <svg viewBox="0 0 32 32" className="h-full w-full drop-shadow-sm select-none">
+                <circle cx="16" cy="7" r="6" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+                <circle cx="24.5" cy="13" r="6" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.8" />
+                <circle cx="21" cy="23" r="6" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+                <circle cx="11" cy="23" r="6" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.8" />
+                <circle cx="7.5" cy="13" r="6" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+                <circle cx="16" cy="16" r="4.2" fill="#F6D06F" stroke="#E5B869" strokeWidth="0.8" />
+                <circle cx="16" cy="16" r="1.8" fill="#FFFDF8" />
               </svg>
             ) : i % 4 === 1 ? (
-              /* Soft falling flower petal */
-              <svg viewBox="0 0 20 20" className="h-full w-full text-gold/60">
+              /* Soft blush pink rose petal */
+              <svg viewBox="0 0 24 24" className="h-full w-full drop-shadow-sm select-none">
                 <path
-                  d="M10 2 C14 6, 16 12, 10 18 C4 12, 6 6, 10 2 Z"
-                  fill="currentColor"
+                  d="M12 2 C18 6, 21 14, 12 22 C3 14, 6 6, 12 2 Z"
+                  fill="#FAD4D8"
+                  stroke="#F4A6B2"
+                  strokeWidth="0.8"
+                  opacity="0.9"
+                />
+                <path
+                  d="M12 6 C15 9, 16 14, 12 18 C8 14, 9 9, 12 6 Z"
+                  fill="#FFF0F3"
+                  opacity="0.65"
                 />
               </svg>
             ) : i % 4 === 2 ? (
               /* Celestial Star sparkle */
-              <svg viewBox="0 0 24 24" className="h-full w-full text-gold-dark/60 drop-shadow">
+              <svg viewBox="0 0 24 24" className="h-full w-full text-gold drop-shadow select-none">
                 <path
                   d="M12 2L14 9L21 12L14 15L12 22L10 15L3 12L10 9Z"
                   fill="currentColor"
+                  opacity="0.8"
                 />
               </svg>
             ) : (
-              /* Soft golden dew point */
-              <svg viewBox="0 0 20 20" className="h-full w-full text-gold/50">
-                <circle cx="10" cy="10" r="4.5" fill="currentColor" />
+              /* Cute mini peach blossom */
+              <svg viewBox="0 0 24 24" className="h-full w-full drop-shadow-sm select-none">
+                <circle cx="12" cy="6" r="4.2" fill="#FCE1D8" stroke="#F7B2BD" strokeWidth="0.6" />
+                <circle cx="17.5" cy="10" r="4.2" fill="#FDE2E4" stroke="#F7B2BD" strokeWidth="0.6" />
+                <circle cx="15.5" cy="17" r="4.2" fill="#FCE1D8" stroke="#F7B2BD" strokeWidth="0.6" />
+                <circle cx="8.5" cy="17" r="4.2" fill="#FDE2E4" stroke="#F7B2BD" strokeWidth="0.6" />
+                <circle cx="6.5" cy="10" r="4.2" fill="#FCE1D8" stroke="#F7B2BD" strokeWidth="0.6" />
+                <circle cx="12" cy="12" r="3.2" fill="#F6D06F" stroke="#E5B869" strokeWidth="0.6" />
+                <circle cx="12" cy="12" r="1.3" fill="#FFFFFF" />
               </svg>
             )}
           </span>
@@ -214,7 +231,112 @@ function FloatingSparklesAndPetals() {
 }
 
 /**
- * Detailed botanical corner frame with blooming flowers, leaves, and vine spirals.
+ * Cute floral centerpiece bouquet featuring blooming blush flowers,
+ * peach buds, golden stamen centers, and delicate sage foliage sprigs.
+ */
+function CuteFloralBouquet({
+  size = "md",
+  className = "",
+}: {
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}) {
+  const dimensions =
+    size === "sm"
+      ? { w: 140, h: 42 }
+      : size === "lg"
+      ? { w: 250, h: 72 }
+      : { w: 190, h: 56 };
+
+  return (
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <svg
+        width={dimensions.w}
+        height={dimensions.h}
+        viewBox="0 0 200 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="drop-shadow-sm transition-transform duration-300 hover:scale-105"
+      >
+        {/* Left sage greenery */}
+        <g opacity="0.95">
+          <path d="M 88 32 C 65 34, 40 28, 18 20" stroke="#8CA384" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M 24 21 C 18 14, 25 8, 32 15 C 32 20, 28 22, 24 21 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 45 28 C 39 19, 48 14, 54 22 C 54 27, 49 29, 45 28 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 68 31 C 60 21, 71 16, 76 25 C 76 30, 71 32, 68 31 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 38 27 C 32 35, 42 41, 47 33 C 47 28, 42 26, 38 27 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 62 33 C 55 42, 66 46, 71 37 C 71 32, 66 31, 62 33 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.8" />
+          {/* Golden berry / baby's breath accents left */}
+          <circle cx="28" cy="28" r="2.2" fill="#E5B869" />
+          <circle cx="16" cy="18" r="1.8" fill="#F3CA7E" />
+          <circle cx="50" cy="16" r="2" fill="#E5B869" />
+        </g>
+
+        {/* Right sage greenery */}
+        <g opacity="0.95" transform="translate(200, 0) scale(-1, 1)">
+          <path d="M 88 32 C 65 34, 40 28, 18 20" stroke="#8CA384" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M 24 21 C 18 14, 25 8, 32 15 C 32 20, 28 22, 24 21 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 45 28 C 39 19, 48 14, 54 22 C 54 27, 49 29, 45 28 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 68 31 C 60 21, 71 16, 76 25 C 76 30, 71 32, 68 31 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 38 27 C 32 35, 42 41, 47 33 C 47 28, 42 26, 38 27 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+          <path d="M 62 33 C 55 42, 66 46, 71 37 C 71 32, 66 31, 62 33 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.8" />
+          {/* Golden berry / baby's breath accents right */}
+          <circle cx="28" cy="28" r="2.2" fill="#E5B869" />
+          <circle cx="16" cy="18" r="1.8" fill="#F3CA7E" />
+          <circle cx="50" cy="16" r="2" fill="#E5B869" />
+        </g>
+
+        {/* Left Flanking Blossom (Peach / Soft Blush) at (74, 32) */}
+        <g transform="translate(74, 32) scale(0.85)">
+          <circle cx="0" cy="-9" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="8" cy="-3" r="7" fill="#FCE1D8" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="5" cy="8" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="-5" cy="8" r="7" fill="#FCE1D8" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="-8" cy="-3" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="4.5" fill="#F6D06F" stroke="#E5B869" strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="2.2" fill="#FFFFFF" />
+        </g>
+
+        {/* Right Flanking Blossom (Blush / Pastel Rose) at (126, 32) */}
+        <g transform="translate(126, 32) scale(0.85)">
+          <circle cx="0" cy="-9" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="8" cy="-3" r="7" fill="#FCE1D8" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="5" cy="8" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="-5" cy="8" r="7" fill="#FCE1D8" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="-8" cy="-3" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="4.5" fill="#F6D06F" stroke="#E5B869" strokeWidth="0.8" />
+          <circle cx="0" cy="0" r="2.2" fill="#FFFFFF" />
+        </g>
+
+        {/* Center Primary Cute Blooming Rose at (100, 30) */}
+        <g transform="translate(100, 30)">
+          {/* 5 rounded overlapping cute blossom petals */}
+          <circle cx="0" cy="-11" r="8.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.9" />
+          <circle cx="10.5" cy="-3.5" r="8.5" fill="#FCE2E6" stroke="#F4A6B2" strokeWidth="0.9" />
+          <circle cx="6.5" cy="9" r="8.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.9" />
+          <circle cx="-6.5" cy="9" r="8.5" fill="#FCE2E6" stroke="#F4A6B2" strokeWidth="0.9" />
+          <circle cx="-10.5" cy="-3.5" r="8.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.9" />
+
+          {/* Inner cute blossom layer */}
+          <circle cx="0" cy="-4" r="5" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.8" />
+          <circle cx="4" cy="1" r="5" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.8" />
+          <circle cx="-4" cy="1" r="5" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.8" />
+
+          {/* Golden Center with cute pollen dots */}
+          <circle cx="0" cy="0" r="5.2" fill="#F4CF68" stroke="#DCA23F" strokeWidth="0.9" />
+          <circle cx="0" cy="0" r="3.2" fill="#FDF3CE" />
+          <circle cx="-1.5" cy="-1.5" r="0.8" fill="#B8860B" />
+          <circle cx="1.5" cy="-1.5" r="0.8" fill="#B8860B" />
+          <circle cx="0" cy="1.6" r="0.8" fill="#B8860B" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Detailed botanical corner frame with blooming cute blush flowers,
+ * soft sage leaves, and golden vine spirals.
  */
 function FloralCorner({ className = "" }: { className?: string }) {
   return (
@@ -222,79 +344,80 @@ function FloralCorner({ className = "" }: { className?: string }) {
       viewBox="0 0 140 140"
       className={className}
       fill="none"
-      stroke="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Outer corner framing border lines */}
-      <path d="M 6 6 L 68 6 M 6 6 L 6 68" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
-      <path d="M 12 12 L 48 12 M 12 12 L 12 48" strokeWidth="0.8" opacity="0.45" strokeLinecap="round" />
+      {/* Outer corner framing border lines in gold */}
+      <path d="M 6 6 L 68 6 M 6 6 L 6 68" stroke="currentColor" strokeWidth="1.2" opacity="0.65" strokeLinecap="round" />
+      <path d="M 12 12 L 48 12 M 12 12 L 12 48" stroke="currentColor" strokeWidth="0.8" opacity="0.45" strokeLinecap="round" />
 
       {/* Graceful vine trails extending along horizontal & vertical border lines */}
       <path
         d="M 18 18 Q 48 20, 78 10 T 132 6"
+        stroke="currentColor"
         strokeWidth="1.2"
         strokeLinecap="round"
         opacity="0.85"
       />
       <path
         d="M 18 18 Q 20 48, 10 78 T 6 132"
+        stroke="currentColor"
         strokeWidth="1.2"
         strokeLinecap="round"
         opacity="0.85"
       />
 
-      {/* Leaves branching along top border */}
-      <path d="M 46 16 C 54 8, 66 10, 62 19 C 56 22, 48 20, 46 16 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="0.8" />
-      <path d="M 82 10 C 92 4, 102 6, 96 15 C 89 17, 83 14, 82 10 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="0.8" />
-      <path d="M 112 7 C 120 2, 128 5, 124 11 C 117 13, 112 10, 112 7 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.8" />
+      {/* Cute sage leaves branching along top border */}
+      <path d="M 46 16 C 54 8, 66 10, 62 19 C 56 22, 48 20, 46 16 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+      <path d="M 82 10 C 92 4, 102 6, 96 15 C 89 17, 83 14, 82 10 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.8" />
+      <path d="M 112 7 C 120 2, 128 5, 124 11 C 117 13, 112 10, 112 7 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
 
-      {/* Leaves branching along left border */}
-      <path d="M 16 46 C 8 54, 10 66, 19 62 C 22 56, 20 48, 16 46 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="0.8" />
-      <path d="M 10 82 C 4 92, 6 102, 15 96 C 17 89, 14 83, 10 82 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="0.8" />
-      <path d="M 7 112 C 2 120, 5 128, 11 124 C 13 117, 10 112, 7 112 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.8" />
+      {/* Cute sage leaves branching along left border */}
+      <path d="M 16 46 C 8 54, 10 66, 19 62 C 22 56, 20 48, 16 46 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
+      <path d="M 10 82 C 4 92, 6 102, 15 96 C 17 89, 14 83, 10 82 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.8" />
+      <path d="M 7 112 C 2 120, 5 128, 11 124 C 13 117, 10 112, 7 112 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.8" />
 
-      {/* Primary Blooming Flower nestled right in the corner hub (around 32, 32) */}
+      {/* Primary Cute Blooming Flower nestled right in the corner hub (around 32, 32) */}
       <g transform="translate(32, 32)">
-        {/* Flower petals (layer 1 - diagonal) */}
-        <path d="M 0 0 C -8 -16, -18 -8, 0 0 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.9" />
-        <path d="M 0 0 C 16 -8, 8 -18, 0 0 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.9" />
-        <path d="M 0 0 C 8 18, 18 8, 0 0 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.9" />
-        <path d="M 0 0 C -18 8, -8 18, 0 0 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.9" />
+        {/* Soft blush outer petals */}
+        <circle cx="0" cy="-9" r="6.8" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+        <circle cx="8.5" cy="-2.5" r="6.8" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.8" />
+        <circle cx="5" cy="8" r="6.8" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+        <circle cx="-5" cy="8" r="6.8" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.8" />
+        <circle cx="-8.5" cy="-2.5" r="6.8" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
 
-        {/* Flower petals (layer 2 - cardinal blooming) */}
-        <path d="M 0 0 C -7 -18, 7 -18, 0 0 Z" fill="currentColor" fillOpacity="0.5" strokeWidth="1" />
-        <path d="M 0 0 C 18 -7, 18 7, 0 0 Z" fill="currentColor" fillOpacity="0.5" strokeWidth="1" />
-        <path d="M 0 0 C 7 18, -7 18, 0 0 Z" fill="currentColor" fillOpacity="0.5" strokeWidth="1" />
-        <path d="M 0 0 C -18 7, -18 -7, 0 0 Z" fill="currentColor" fillOpacity="0.5" strokeWidth="1" />
+        {/* Flower inner petals */}
+        <circle cx="0" cy="-3.5" r="4.2" fill="#FFF2F4" stroke="#F7B2BD" strokeWidth="0.6" />
+        <circle cx="3.5" cy="1" r="4.2" fill="#FFF2F4" stroke="#F7B2BD" strokeWidth="0.6" />
+        <circle cx="-3.5" cy="1" r="4.2" fill="#FFF2F4" stroke="#F7B2BD" strokeWidth="0.6" />
 
-        {/* Flower center */}
-        <circle cx="0" cy="0" r="4.8" fill="currentColor" fillOpacity="0.85" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="0" cy="0" r="2.2" fill="#FAF7F2" />
+        {/* Golden center */}
+        <circle cx="0" cy="0" r="4.2" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.8" />
+        <circle cx="0" cy="0" r="1.8" fill="#FFFDF8" />
       </g>
 
-      {/* Secondary Flower on the top horizontal border branch (around 95, 11) */}
-      <g transform="translate(95, 11) scale(0.72)">
-        <path d="M 0 -10 C 6 -14, 10 -8, 0 0 C -10 -8, -6 -14, 0 -10 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <path d="M 10 0 C 14 6, 8 10, 0 0 C 8 -10, 14 -6, 10 0 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <path d="M 0 10 C -6 14, -10 8, 0 0 C 10 8, 6 14, 0 10 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <path d="M -10 0 C -14 -6, -8 -10, 0 0 C -8 10, -14 6, -10 0 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <circle cx="0" cy="0" r="3.2" fill="currentColor" fillOpacity="0.85" />
-        <circle cx="0" cy="0" r="1.4" fill="#FAF7F2" />
+      {/* Secondary Cute Flower on the top horizontal border (around 95, 11) */}
+      <g transform="translate(95, 11) scale(0.75)">
+        <circle cx="0" cy="-6" r="4.8" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="6" cy="0" r="4.8" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="0" cy="6" r="4.8" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="-6" cy="0" r="4.8" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="0" cy="0" r="3" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.7" />
+        <circle cx="0" cy="0" r="1.2" fill="#FFFFFF" />
       </g>
 
-      {/* Secondary Flower on the left vertical border branch (around 11, 95) */}
-      <g transform="translate(11, 95) scale(0.72)">
-        <path d="M 0 -10 C 6 -14, 10 -8, 0 0 C -10 -8, -6 -14, 0 -10 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <path d="M 10 0 C 14 6, 8 10, 0 0 C 8 -10, 14 -6, 10 0 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <path d="M 0 10 C -6 14, -10 8, 0 0 C 10 8, 6 14, 0 10 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <path d="M -10 0 C -14 -6, -8 -10, 0 0 C -8 10, -14 6, -10 0 Z" fill="currentColor" fillOpacity="0.45" strokeWidth="1" />
-        <circle cx="0" cy="0" r="3.2" fill="currentColor" fillOpacity="0.85" />
-        <circle cx="0" cy="0" r="1.4" fill="#FAF7F2" />
+      {/* Secondary Cute Flower on the left vertical border (around 11, 95) */}
+      <g transform="translate(11, 95) scale(0.75)">
+        <circle cx="0" cy="-6" r="4.8" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="6" cy="0" r="4.8" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="0" cy="6" r="4.8" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="-6" cy="0" r="4.8" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.7" />
+        <circle cx="0" cy="0" r="3" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.7" />
+        <circle cx="0" cy="0" r="1.2" fill="#FFFFFF" />
       </g>
 
-      {/* Petite flower buds at the tips of border lines */}
-      <circle cx="134" cy="6" r="2.2" fill="currentColor" fillOpacity="0.75" />
-      <circle cx="6" cy="134" r="2.2" fill="currentColor" fillOpacity="0.75" />
+      {/* Petite cute flower buds at tips */}
+      <circle cx="134" cy="6" r="2.8" fill="#FAD4D8" stroke="#E5B869" strokeWidth="0.7" />
+      <circle cx="6" cy="134" r="2.8" fill="#FAD4D8" stroke="#E5B869" strokeWidth="0.7" />
     </svg>
   );
 }
@@ -307,49 +430,59 @@ function FloralBorderGarland({ className = "" }: { className?: string }) {
     <div className={`pointer-events-none relative z-10 mx-auto flex w-full max-w-sm items-center justify-center px-3 py-2 ${className}`}>
       <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-dark/40 to-gold-dark/80" />
 
-      <div className="mx-2.5 flex items-center gap-1.5 text-gold-dark">
-        {/* Left leaf sprig */}
-        <svg width="28" height="16" viewBox="0 0 32 18" fill="currentColor" className="opacity-80">
-          <path d="M 30 9 Q 16 8, 2 9" stroke="currentColor" strokeWidth="1.2" fill="none" />
-          <path d="M 22 8 C 18 2, 13 4, 17 8 Z" opacity="0.65" />
-          <path d="M 14 9 C 10 15, 5 13, 10 9 Z" opacity="0.65" />
-          <path d="M 7 8 C 4 3, 0 5, 4 8 Z" opacity="0.75" />
-          <circle cx="2" cy="9" r="1.5" />
+      <div className="mx-2.5 flex items-center gap-2">
+        {/* Left sage leaf sprig */}
+        <svg width="26" height="16" viewBox="0 0 32 18" fill="none">
+          <path d="M 30 9 Q 16 8, 2 9" stroke="#8CA384" strokeWidth="1.2" />
+          <path d="M 22 8 C 18 2, 13 4, 17 8 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.7" />
+          <path d="M 14 9 C 10 15, 5 13, 10 9 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.7" />
+          <path d="M 7 8 C 4 3, 0 5, 4 8 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.7" />
+          <circle cx="2" cy="9" r="1.5" fill="#E5B869" />
         </svg>
 
-        {/* Small side flower */}
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" className="opacity-85">
-          <path d="M 10 2 C 8 6, 12 6, 10 2 Z M 18 10 C 14 8, 14 12, 18 10 Z M 10 18 C 12 14, 8 14, 10 18 Z M 2 10 C 6 12, 6 8, 2 10 Z" />
-          <circle cx="10" cy="10" r="2.5" fill="#FAF7F2" />
+        {/* Small cute side blossom left */}
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="drop-shadow-sm">
+          <circle cx="10" cy="4" r="3.2" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="16" cy="10" r="3.2" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="10" cy="16" r="3.2" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="4" cy="10" r="3.2" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="10" cy="10" r="2.6" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.6" />
+          <circle cx="10" cy="10" r="1" fill="#FFFFFF" />
         </svg>
 
-        {/* Center blooming flower */}
-        <svg width="26" height="26" viewBox="0 0 32 32" fill="currentColor" className="drop-shadow-sm">
-          {/* Main petals */}
-          <path d="M 16 3 C 12 9, 20 9, 16 3 Z" opacity="0.9" />
-          <path d="M 27 10 C 21 10, 24 18, 27 10 Z" opacity="0.9" />
-          <path d="M 27 22 C 24 14, 21 22, 27 22 Z" opacity="0.9" />
-          <path d="M 16 29 C 20 23, 12 23, 16 29 Z" opacity="0.9" />
-          <path d="M 5 22 C 11 22, 8 14, 5 22 Z" opacity="0.9" />
-          <path d="M 5 10 C 8 18, 11 10, 5 10 Z" opacity="0.9" />
-          {/* Inner core */}
-          <circle cx="16" cy="16" r="4.2" fill="currentColor" />
-          <circle cx="16" cy="16" r="2" fill="#FAF7F2" />
+        {/* Center cute blooming rose / blossom */}
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" className="drop-shadow-sm">
+          <circle cx="16" cy="7" r="5.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+          <circle cx="24" cy="12.5" r="5.5" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.8" />
+          <circle cx="21" cy="22" r="5.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+          <circle cx="11" cy="22" r="5.5" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.8" />
+          <circle cx="8" cy="12.5" r="5.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.8" />
+          {/* Inner petal highlights */}
+          <circle cx="16" cy="12" r="3.6" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.6" />
+          <circle cx="19" cy="17" r="3.6" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.6" />
+          <circle cx="13" cy="17" r="3.6" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.6" />
+          {/* Golden Center */}
+          <circle cx="16" cy="16" r="4.2" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.8" />
+          <circle cx="16" cy="16" r="2" fill="#FFFDF8" />
         </svg>
 
-        {/* Small side flower right */}
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" className="opacity-85">
-          <path d="M 10 2 C 8 6, 12 6, 10 2 Z M 18 10 C 14 8, 14 12, 18 10 Z M 10 18 C 12 14, 8 14, 10 18 Z M 2 10 C 6 12, 6 8, 2 10 Z" />
-          <circle cx="10" cy="10" r="2.5" fill="#FAF7F2" />
+        {/* Small cute side blossom right */}
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="drop-shadow-sm">
+          <circle cx="10" cy="4" r="3.2" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="16" cy="10" r="3.2" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="10" cy="16" r="3.2" fill="#FDE2E4" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="4" cy="10" r="3.2" fill="#FCE1D8" stroke="#F4A6B2" strokeWidth="0.6" />
+          <circle cx="10" cy="10" r="2.6" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.6" />
+          <circle cx="10" cy="10" r="1" fill="#FFFFFF" />
         </svg>
 
-        {/* Right leaf sprig */}
-        <svg width="28" height="16" viewBox="0 0 32 18" fill="currentColor" className="scale-x-[-1] opacity-80">
-          <path d="M 30 9 Q 16 8, 2 9" stroke="currentColor" strokeWidth="1.2" fill="none" />
-          <path d="M 22 8 C 18 2, 13 4, 17 8 Z" opacity="0.65" />
-          <path d="M 14 9 C 10 15, 5 13, 10 9 Z" opacity="0.65" />
-          <path d="M 7 8 C 4 3, 0 5, 4 8 Z" opacity="0.75" />
-          <circle cx="2" cy="9" r="1.5" />
+        {/* Right sage leaf sprig */}
+        <svg width="26" height="16" viewBox="0 0 32 18" fill="none" className="scale-x-[-1]">
+          <path d="M 30 9 Q 16 8, 2 9" stroke="#8CA384" strokeWidth="1.2" />
+          <path d="M 22 8 C 18 2, 13 4, 17 8 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.7" />
+          <path d="M 14 9 C 10 15, 5 13, 10 9 Z" fill="#A8BF9F" stroke="#7E9675" strokeWidth="0.7" />
+          <path d="M 7 8 C 4 3, 0 5, 4 8 Z" fill="#9FB89A" stroke="#7E9675" strokeWidth="0.7" />
+          <circle cx="2" cy="9" r="1.5" fill="#E5B869" />
         </svg>
       </div>
 
@@ -420,6 +553,7 @@ function Cover({ onOpen, showButton = true }: { onOpen: () => void; showButton?:
 
       {/* Center Baby Name & Parents */}
       <div className="my-auto py-6 flex flex-col items-center animate-float-up delay-500 w-full">
+        <CuteFloralBouquet size="lg" className="mb-3 sm:mb-4" />
         <div className="relative px-2">
           <h1
             className="text-navy-deep tracking-[0.04em] font-semibold text-center drop-shadow-sm"
@@ -648,8 +782,9 @@ function CardContent({
 
           {/* Bottom Blessing */}
           <div className="pt-3 border-t border-gold-dark/25 flex flex-col items-center">
+            <CuteFloralBouquet size="sm" className="mb-2 opacity-95" />
             <p
-              className="text-lg italic text-navy-deep sm:text-xl"
+              className="text-lg italic text-navy-deep sm:text-xl text-center"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
               &ldquo;May the Lord bless her and keep her, and make His face shine upon her.&rdquo;
@@ -744,6 +879,7 @@ function DetailedInvitationCard() {
 
       {/* Child's Name */}
       <div className="my-3 flex flex-col items-center text-center">
+        <CuteFloralBouquet size="md" className="mb-2" />
         <h2
           className="tracking-[0.06em] font-bold text-navy-deep drop-shadow-sm px-2"
           style={{
