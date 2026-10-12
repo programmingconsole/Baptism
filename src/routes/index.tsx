@@ -294,7 +294,13 @@ function CuteFloralBouquet({
           <circle cx="-5" cy="8" r="7" fill="#FCE1D8" stroke="#F5B7B1" strokeWidth="0.8" />
           <circle cx="-8" cy="-3" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
           <circle cx="0" cy="0" r="4.5" fill="#F6D06F" stroke="#E5B869" strokeWidth="0.8" />
-          <circle cx="0" cy="0" r="2.2" fill="#FFFFFF" />
+          <circle cx="0" cy="0" r="2.8" fill="#FFFBE8" />
+          {/* Smiling face */}
+          <circle cx="-1.3" cy="-0.7" r="0.55" fill="#5C3D10" />
+          <circle cx="1.3" cy="-0.7" r="0.55" fill="#5C3D10" />
+          <circle cx="-2.0" cy="0.3" r="0.65" fill="#F49CA8" opacity="0.75" />
+          <circle cx="2.0" cy="0.3" r="0.65" fill="#F49CA8" opacity="0.75" />
+          <path d="M -1.2 0.5 Q 0 1.8, 1.2 0.5" stroke="#5C3D10" strokeWidth="0.55" strokeLinecap="round" fill="none" />
         </g>
 
         {/* Right Flanking Blossom (Blush / Pastel Rose) at (126, 32) */}
@@ -305,10 +311,16 @@ function CuteFloralBouquet({
           <circle cx="-5" cy="8" r="7" fill="#FCE1D8" stroke="#F5B7B1" strokeWidth="0.8" />
           <circle cx="-8" cy="-3" r="7" fill="#FDE2E4" stroke="#F5B7B1" strokeWidth="0.8" />
           <circle cx="0" cy="0" r="4.5" fill="#F6D06F" stroke="#E5B869" strokeWidth="0.8" />
-          <circle cx="0" cy="0" r="2.2" fill="#FFFFFF" />
+          <circle cx="0" cy="0" r="2.8" fill="#FFFBE8" />
+          {/* Smiling face */}
+          <circle cx="-1.3" cy="-0.7" r="0.55" fill="#5C3D10" />
+          <circle cx="1.3" cy="-0.7" r="0.55" fill="#5C3D10" />
+          <circle cx="-2.0" cy="0.3" r="0.65" fill="#F49CA8" opacity="0.75" />
+          <circle cx="2.0" cy="0.3" r="0.65" fill="#F49CA8" opacity="0.75" />
+          <path d="M -1.2 0.5 Q 0 1.8, 1.2 0.5" stroke="#5C3D10" strokeWidth="0.55" strokeLinecap="round" fill="none" />
         </g>
 
-        {/* Center Primary Cute Blooming Rose at (100, 30) */}
+        {/* Center Primary Cute Blooming Rose with happy smile at (100, 30) */}
         <g transform="translate(100, 30)">
           {/* 5 rounded overlapping cute blossom petals */}
           <circle cx="0" cy="-11" r="8.5" fill="#FAD4D8" stroke="#F4A6B2" strokeWidth="0.9" />
@@ -322,12 +334,28 @@ function CuteFloralBouquet({
           <circle cx="4" cy="1" r="5" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.8" />
           <circle cx="-4" cy="1" r="5" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.8" />
 
-          {/* Golden Center with cute pollen dots */}
+          {/* Golden Center with cute smiling face */}
           <circle cx="0" cy="0" r="5.2" fill="#F4CF68" stroke="#DCA23F" strokeWidth="0.9" />
-          <circle cx="0" cy="0" r="3.2" fill="#FDF3CE" />
-          <circle cx="-1.5" cy="-1.5" r="0.8" fill="#B8860B" />
-          <circle cx="1.5" cy="-1.5" r="0.8" fill="#B8860B" />
-          <circle cx="0" cy="1.6" r="0.8" fill="#B8860B" />
+          <circle cx="0" cy="0" r="3.4" fill="#FDF3CE" />
+
+          {/* Smiling Eyes with glint */}
+          <circle cx="-1.6" cy="-0.9" r="0.65" fill="#5C3D10" />
+          <circle cx="1.6" cy="-0.9" r="0.65" fill="#5C3D10" />
+          <circle cx="-1.8" cy="-1.1" r="0.22" fill="#FFFFFF" />
+          <circle cx="1.4" cy="-1.1" r="0.22" fill="#FFFFFF" />
+
+          {/* Rosy Cheeks */}
+          <circle cx="-2.5" cy="0.4" r="0.75" fill="#F49CA8" opacity="0.8" />
+          <circle cx="2.5" cy="0.4" r="0.75" fill="#F49CA8" opacity="0.8" />
+
+          {/* Sweet Happy Smile */}
+          <path
+            d="M -1.5 0.7 Q 0 2.3, 1.5 0.7"
+            stroke="#5C3D10"
+            strokeWidth="0.65"
+            strokeLinecap="round"
+            fill="none"
+          />
         </g>
       </svg>
     </div>
@@ -390,9 +418,14 @@ function FloralCorner({ className = "" }: { className?: string }) {
         <circle cx="3.5" cy="1" r="4.2" fill="#FFF2F4" stroke="#F7B2BD" strokeWidth="0.6" />
         <circle cx="-3.5" cy="1" r="4.2" fill="#FFF2F4" stroke="#F7B2BD" strokeWidth="0.6" />
 
-        {/* Golden center */}
+        {/* Golden center with sweet smiling face */}
         <circle cx="0" cy="0" r="4.2" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.8" />
-        <circle cx="0" cy="0" r="1.8" fill="#FFFDF8" />
+        <circle cx="0" cy="0" r="2.8" fill="#FFFBE8" />
+        <circle cx="-1.3" cy="-0.8" r="0.55" fill="#5C3D10" />
+        <circle cx="1.3" cy="-0.8" r="0.55" fill="#5C3D10" />
+        <circle cx="-2.0" cy="0.3" r="0.65" fill="#F49CA8" opacity="0.75" />
+        <circle cx="2.0" cy="0.3" r="0.65" fill="#F49CA8" opacity="0.75" />
+        <path d="M -1.2 0.5 Q 0 1.9, 1.2 0.5" stroke="#5C3D10" strokeWidth="0.55" strokeLinecap="round" fill="none" />
       </g>
 
       {/* Secondary Cute Flower on the top horizontal border (around 95, 11) */}
@@ -461,9 +494,14 @@ function FloralBorderGarland({ className = "" }: { className?: string }) {
           <circle cx="16" cy="12" r="3.6" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.6" />
           <circle cx="19" cy="17" r="3.6" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.6" />
           <circle cx="13" cy="17" r="3.6" fill="#FFF0F3" stroke="#F7B2BD" strokeWidth="0.6" />
-          {/* Golden Center */}
+          {/* Golden Center with smiling face */}
           <circle cx="16" cy="16" r="4.2" fill="#F6D06F" stroke="#DCA23F" strokeWidth="0.8" />
-          <circle cx="16" cy="16" r="2" fill="#FFFDF8" />
+          <circle cx="16" cy="16" r="2.8" fill="#FFFBE8" />
+          <circle cx="14.6" cy="15.2" r="0.55" fill="#5C3D10" />
+          <circle cx="17.4" cy="15.2" r="0.55" fill="#5C3D10" />
+          <circle cx="13.9" cy="16.2" r="0.65" fill="#F49CA8" opacity="0.75" />
+          <circle cx="18.1" cy="16.2" r="0.65" fill="#F49CA8" opacity="0.75" />
+          <path d="M 14.8 16.5 Q 16 17.8, 17.2 16.5" stroke="#5C3D10" strokeWidth="0.5" strokeLinecap="round" fill="none" />
         </svg>
 
         {/* Small cute side blossom right */}
