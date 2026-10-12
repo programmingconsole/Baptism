@@ -19,40 +19,41 @@
   --color-border: var(--border);
   --color-gold: var(--gold);
   --color-gold-dark: var(--gold-dark);
-  --color-maroon-deep: var(--maroon-deep);
+  --color-navy-deep: var(--navy-deep);
+  --color-maroon-deep: var(--navy-deep);
   --color-cream: var(--cream);
+  --color-sky-soft: var(--sky-soft);
   --font-display: var(--font-display);
-  --font-arabic: var(--font-arabic);
   --font-serif-body: var(--font-serif-body);
 }
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.96 0.02 80);
-  --foreground: oklch(0.28 0.08 25);
-  --primary: oklch(0.32 0.11 25);
-  --primary-foreground: oklch(0.96 0.02 80);
-  --secondary: oklch(0.9 0.03 80);
-  --secondary-foreground: oklch(0.28 0.08 25);
-  --muted: oklch(0.9 0.02 80);
-  --muted-foreground: oklch(0.45 0.05 40);
-  --accent: oklch(0.72 0.1 75);
-  --accent-foreground: oklch(0.28 0.08 25);
-  --border: oklch(0.32 0.11 25 / 30%);
-  --gold: oklch(0.82 0.1 82);
-  --gold-dark: oklch(0.65 0.1 70);
-  --maroon-deep: oklch(0.32 0.11 25);
-  --cream: oklch(0.96 0.02 80);
-  --card: oklch(0.96 0.02 80);
-  --card-foreground: oklch(0.28 0.08 25);
-  --popover: oklch(0.96 0.02 80);
-  --popover-foreground: oklch(0.28 0.08 25);
-  --input: oklch(0.9 0.02 80);
-  --ring: oklch(0.32 0.11 25);
+  --background: oklch(0.97 0.012 85);
+  --foreground: oklch(0.22 0.07 245);
+  --primary: oklch(0.22 0.07 245);
+  --primary-foreground: oklch(0.97 0.012 85);
+  --secondary: oklch(0.93 0.02 85);
+  --secondary-foreground: oklch(0.22 0.07 245);
+  --muted: oklch(0.92 0.015 85);
+  --muted-foreground: oklch(0.46 0.04 240);
+  --accent: oklch(0.78 0.11 82);
+  --accent-foreground: oklch(0.22 0.07 245);
+  --border: oklch(0.68 0.1 75 / 35%);
+  --gold: oklch(0.82 0.11 82);
+  --gold-dark: oklch(0.66 0.11 75);
+  --navy-deep: oklch(0.22 0.07 245);
+  --sky-soft: oklch(0.92 0.03 230);
+  --cream: oklch(0.97 0.012 85);
+  --card: oklch(0.97 0.012 85);
+  --card-foreground: oklch(0.22 0.07 245);
+  --popover: oklch(0.97 0.012 85);
+  --popover-foreground: oklch(0.22 0.07 245);
+  --input: oklch(0.92 0.015 85);
+  --ring: oklch(0.66 0.11 75);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --font-display: "Cormorant Garamond", "Cormorant", serif;
-  --font-arabic: "Amiri", "Scheherazade New", serif;
+  --font-display: "Cinzel", "Cormorant Garamond", serif;
   --font-serif-body: "Cormorant Garamond", serif;
 }
 

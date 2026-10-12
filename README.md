@@ -1,22 +1,23 @@
-# Mohammed Shahal & Aysha Fasna — Nikah Invitation
+# Shalet Maria Sanju — Holy Baptism Invitation
 
-A beautiful, premium, and fully responsive digital wedding/nikah invitation web application built using **React**, **TypeScript**, **Tailwind CSS**, and **TanStack Start**.
+A beautiful, premium, and fully responsive digital Holy Baptism invitation web application celebrating **Shalet Maria Sanju**, beloved son of **Sanju Saju** and **Angela Alappat**, built with **React 19**, **TypeScript**, **Tailwind CSS**, and **TanStack Start**.
 
 ## Features
 
-- **Elegant Aesthetics**: Sleek modern design featuring cream, gold, and maroon color tones, custom typography, animations, and background textures.
-- **Audio Backdrop**: High-fidelity background music with a floating toggle button.
-- **Falling Petals Animation**: Subtle and interactive falling rose petals across the screen.
-- **Countdown Timer**: Real-time interactive countdown to the big day.
-- **Interactive Details Card**: Smooth layout containing event times, details, and Google Maps navigation.
-- **Vercel & Social Ready**: Optimized metadata for link sharing previews (Open Graph / WhatsApp / Telegram) with custom thumbnail previews.
+- **Sacred Aesthetics**: Sleek modern design featuring ivory, warm cream, champagne gold, and royal sapphire navy tones, custom typography, animations, and botanical floral borders.
+- **Audio Backdrop**: High-fidelity background music featuring *"Deiva Thirumagal - Life is Beautiful"* by G.V. Prakash Kumar with an interactive floating toggle button.
+- **Floating Petals & Stars Animation**: Gentle falling white & gold flower blossoms and celestial starlight across the screen.
+- **Live Countdown Timer**: Real-time interactive countdown to November 6, 2026 at 3:00 PM GST.
+- **Dual Venue Cards & Navigation**: Direct Google Maps navigation buttons for St. Michael's Catholic Church and Asian Empire Venue (Sharjah).
+- **Guest Convenience**: One-click "Add to Calendar" and native "Share Invitation" actions.
+- **Vercel & Social Ready**: Optimized metadata for link sharing previews (WhatsApp / iMessage / Open Graph) with custom thumbnail previews.
 
 ## Tech Stack
 
 - **Framework**: [TanStack Start](https://tanstack.com/router/v1/docs/start/overview) (Vite + React)
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS v4
 - **Icons**: Lucide Icons
-- **Deployment**: Vercel
+- **Deployment**: Vercel (Preset configured in `vite.config.ts`)
 
 ---
 
