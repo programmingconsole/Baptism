@@ -677,8 +677,8 @@ function CardContent({
   // Google Calendar URL generator
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     "Holy Baptism of Shalet Maria Sanju"
-  )}&dates=20261106T110000Z/20261106T180000Z&details=${encodeURIComponent(
-    "Baptism Ceremony at 3:00 PM at St. Michael's Catholic Church, Sharjah. Reception from 7:00 PM at Asian Empire Venue, Mubarak Center, Rolla, Sharjah."
+  )}&dates=20261106T110000Z/20261106T150000Z&details=${encodeURIComponent(
+    "Baptism Ceremony at 3:00 PM at St. Michael's Catholic Church, Sharjah. Reception from 6:00 PM at Asian Empire Venue, Mubarak Center, Rolla, Sharjah."
   )}&location=${encodeURIComponent(
     "St. Michael's Catholic Church, Al Yarmook, Sharjah, UAE"
   )}`;
@@ -753,7 +753,7 @@ function CardContent({
             <div className="flex items-start justify-between gap-3">
               <div>
                 <span className="inline-block rounded-full bg-gold/25 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-navy-deep">
-                  Celebration Reception &middot; From 7:00 PM
+                  Celebration Reception &middot; From 6:00 PM
                 </span>
                 <h4
                   className="mt-2 text-lg sm:text-xl font-bold text-navy-deep"
@@ -980,7 +980,7 @@ function DetailedInvitationCard() {
               className="text-navy-deep font-bold leading-tight my-1 text-center"
               style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.15rem, 5vw, 1.45rem)" }}
             >
-              7:00 PM
+              6:00 PM
             </span>
             <p className="text-[10px] font-semibold text-navy-deep/90 sm:text-xs">
               Onwards
